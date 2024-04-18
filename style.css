@@ -1,12 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --md-dark-color: #1d1d1d;
+    --dark-color: #171717;
+    --light-dark-color: #292929;
+    --yellow-color: #d4aa11;
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--dark-color);
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
@@ -17,6 +28,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: var(--yellow-color);
 }
 
 .search-container {
@@ -24,24 +36,25 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+.search-container input[type="text"] {
     flex: 1;
     padding: 10px;
     border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--light-dark-color);
 }
 
-button {
+.search-container button {
     padding: 10px 20px;
     border: none;
     border-radius: 0 5px 5px 0;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+.search-container button:hover {
+    background-color: var(--primary-hover-color);
 }
 
 ul {
@@ -51,7 +64,7 @@ ul {
 
 li {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--light-dark-color);
 }
 
 li:last-child {
@@ -60,12 +73,13 @@ li:last-child {
 
 #movie-details {
     margin-top: 30px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--light-dark-color);
     padding-top: 20px;
 }
 
 #movie-details h2 {
     margin-bottom: 10px;
+    color: var(--yellow-color);
 }
 
 #movie-details img {
@@ -80,7 +94,7 @@ li:last-child {
 }
 
 #movies-list li:hover {
-    background-color: #f2f2f2;
+    background-color: var(--light-dark-color);
 }
 
 .search-container {
@@ -89,4 +103,22 @@ li:last-child {
 
 .search-container input {
     margin-right: 10px;
+}
+
+/* thumbnail */
+.search-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.search-list::-webkit-scrollbar-thumb {
+    background-color: var(--yellow-color);
+    border-radius: 10px;
+}
+
+.hide-search-list {
+    display: none;
 }
