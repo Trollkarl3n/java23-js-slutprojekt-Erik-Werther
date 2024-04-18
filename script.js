@@ -6,15 +6,18 @@ function init() {
     document.getElementById('person-search-button').addEventListener('click', searchPersons);
 }
 
+// f6705d536731
+// d0614d69ccd67a93f448
+
 function fetchTopRatedMovies() {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
 
     fetchMovies(url);
 }
 
 function fetchPopularMovies() {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
 
     fetchMovies(url);
@@ -42,7 +45,7 @@ function fetchMovies(url, type = 'movie') {
 
 function searchMovies() {
     const query = document.getElementById('movie-query').value;
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
 
     fetchMovies(url);
@@ -50,7 +53,7 @@ function searchMovies() {
 
 function searchPersons() {
     const query = document.getElementById('person-query').value;
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${query}`;
 
     fetchMovies(url, 'person');
@@ -140,7 +143,7 @@ function displayPersons(persons) {
 }
 
 function fetchPersonMovies(personId) {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${apiKey}`;
 
     fetch(url)
@@ -200,7 +203,7 @@ function displayPersonMovies(movies) {
 }
 
 function fetchMovieDetails(movieId) {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
 
     fetch(url)
