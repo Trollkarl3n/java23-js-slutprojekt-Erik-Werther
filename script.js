@@ -2,18 +2,19 @@ function init() {
     // Event listeners for navigation buttons
     document.getElementById('top-rated-button').addEventListener('click', fetchTopRatedMovies);
     document.getElementById('popular-button').addEventListener('click', fetchPopularMovies);
-    document.getElementById('search-button').addEventListener('click', searchMovies);
+    document.getElementById('movie-search-button').addEventListener('click', searchMovies);
+    document.getElementById('person-search-button').addEventListener('click', searchPersons);
 }
 
 function fetchTopRatedMovies() {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
 
     fetchMovies(url);
 }
 
 function fetchPopularMovies() {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
 
     fetchMovies(url);
@@ -36,11 +37,19 @@ function fetchMovies(url) {
 }
 
 function searchMovies() {
-    const query = document.getElementById('query').value;
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
-    const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${query}`;
+    const query = document.getElementById('movie-query').value;
+    const apiKey = '';
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
 
     fetchMovies(url);
+}
+
+function searchPersons() {
+    const query = document.getElementById('person-query').value;
+    const apiKey = '';
+    const url = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${query}`;
+
+    fetchMovies(url, 'person');
 }
 
 function displayMovies(movies) {
@@ -66,7 +75,7 @@ function displayMovies(movies) {
 }
 
 function fetchMovieDetails(movieId) {
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const apiKey = '';
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
 
     fetch(url)
