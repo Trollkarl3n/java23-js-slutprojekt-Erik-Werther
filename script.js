@@ -1,5 +1,4 @@
-//f6705d536731d0
-//614d69ccd67a93f448
+//f6705d536731d0614d69ccd67a93f448
 
 // Funktion för att initialisera eventlyssnare
 function init() {
@@ -52,16 +51,6 @@ function fetchMovies(url, type = 'movie') {
         });
 }
 
-// Funktion för att söka efter filmer
-function searchMovies() {
-    // Hämta sökfrågan och API-nyckel
-    const query = document.getElementById('movie-query').value;
-    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
-
-    fetchMovies(url);
-}
-
 // Funktion för att söka efter personer
 function searchPersons() {
     // Hämta sökfrågan och API-nyckel
@@ -72,26 +61,44 @@ function searchPersons() {
     fetchMovies(url, 'person');
 }
 
-// Funktion för att visa filmer
+// Funktion för att söka efter filmer
+function searchMovies() {
+    // Hämta sökfrågan och API-nyckel
+    const query = document.getElementById('movie-query').value;
+    const apiKey = 'f6705d536731d0614d69ccd67a93f448';
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
+
+    fetchMovies(url);
+}
+
+// Function to display movies
 function displayMovies(movies) {
-    // Rensa tidigare resultat
+    // Clear previous results
     const moviesList = document.getElementById('movies-list');
     moviesList.innerHTML = '';
 
-    // Loopa igenom och skapa listelement för varje film
+    // Check if there are movies to display
+    if (movies.length === 0) {
+        const noResultsMessage = document.createElement('p');
+        noResultsMessage.textContent = 'There are no movies with that name.';
+        moviesList.appendChild(noResultsMessage);
+        return;
+    }
+
+    // Loop through and create list items for each movie
     movies.forEach(movie => {
-        // Skapa listelement och element för filminformation
+        // Create list item and elements for movie information
         const listItem = document.createElement('li');
         const movieInfo = document.createElement('div');
-        const movieTitle = document.createElement('span');
-        const releaseDate = document.createElement('span');
         const poster = document.createElement('img');
+        const movieTitle = document.createElement('h3');
+        const releaseDate = document.createElement('p');
 
-        // Fyll i information och lägg till i DOM
-        movieTitle.textContent = movie.title;
-        releaseDate.textContent = movie.release_date;
+        // Fill in information and append to DOM
         poster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
         poster.alt = movie.title;
+        movieTitle.textContent = movie.title;
+        releaseDate.textContent = `Release Date: ${movie.release_date}`;
 
         movieInfo.appendChild(poster);
         movieInfo.appendChild(movieTitle);
@@ -109,6 +116,7 @@ function displayMovies(movies) {
     // Göm detaljcontainer och visa film-listan
     const movieDetails = document.getElementById('movie-details');
     movieDetails.style.display = 'none';
+    const searchContainer = document.querySelector('.search-container');
     moviesList.style.display = 'block';
 }
 
@@ -117,6 +125,14 @@ function displayPersons(persons) {
     // Rensa tidigare resultat
     const moviesList = document.getElementById('movies-list');
     moviesList.innerHTML = '';
+
+    // Kontrollera om det finns personer att visa
+    if (persons.length === 0) {
+        const noResultsMessage = document.createElement('p');
+        noResultsMessage.textContent = 'There is no actors with that name.';
+        moviesList.appendChild(noResultsMessage);
+        return;
+    }
 
     // Loopa igenom och skapa listelement för varje person
     persons.forEach(person => {
