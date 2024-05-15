@@ -6,7 +6,7 @@
     --light-dark-color: #292929;
     --yellow-color: #d4aa11;
     --primary-color: #007bff;
-    --primary-hover-color: #0056b3;
+    --primary-hover-color: #0253aa;
 }
 
 body {
@@ -79,7 +79,7 @@ li:last-child {
 
 #movie-details h2 {
     margin-bottom: 10px;
-    color: var(--yellow-color);
+    color: var (--yellow-color);
 }
 
 #movie-details img {

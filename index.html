@@ -7,39 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>Trollkarl3n Movies</h1>
-
-    <div class="search-container">
-        <input type="text" id="movie-query" placeholder="Search movies...">
-        <button id="movie-search-button">Search Movies</button>
-        <input type="text" id="person-query" placeholder="Search persons...">
-        <button id="person-search-button">Search Persons</button>
-    </div>
-    
-    <div class="navigation">
-        <button id="top-rated-button">Top Rated</button>
-        <button id="popular-button">Popular</button>
-    </div>
-    
-    <ul id="movies-list"></ul>
-    
-    <div id="movie-details">
-        <div id="movie-info">
-            <img id="movie-poster" src="" alt="">
-            <h3 id="movie-title"></h3>
-            <p id="movie-release-date"></p>
-            <p id="movie-overview"></p>
+    <div class="container">
+        <h1>Trollkarl3n Movies</h1>
+        <div class="search-container">
+            <button id="top-rated-button">Top Rated Movies</button>
+            <button id="popular-button">Popular Movies</button>
         </div>
+        <form id="movie-search-form" class="search-container">
+            <input type="text" id="movie-query" placeholder="Search for movies or TV series">
+            <button type="submit">Search Movies/TV Series</button>
+        </form>
+        <form id="person-search-form" class="search-container">
+            <input type="text" id="person-query" placeholder="Search for persons">
+            <button type="submit">Search Persons</button>
+        </form>
+        <section id="top-rated-container" class="movie-container"></section>
+        <section id="popular-container" class="movie-container"></section>
+        <section id="search-results-container" class="movie-container"></section>
+        <div id="movie-details"></div>
     </div>
-
-    <div id="tv-shows">
-        <ul id="tv-shows-list"></ul>
-    </div>
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
